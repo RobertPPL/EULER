@@ -3,7 +3,7 @@
 spl_autoload_register(function ($class) {
     require_once '.\\' . $class . '.php';
 });
-/*
+
 //https://projecteuler.net/problem=1
 measure(\problem\Problem1::class, 10, 23);
 measure(\problem\Problem1::class, 100, 2318);
@@ -27,7 +27,7 @@ measure(problem\Problem5::class, 20, 232792560);
 //https://projecteuler.net/problem=6
 measure(problem\Problem6::class, 10, 2640);
 measure(problem\Problem6::class, 100, 25164150);
-*/
+
 //https://projecteuler.net/problem=7
 measure(problem\Problem7::class, 6, 13);
 measure(problem\Problem7::class, 10001, 104743);
