@@ -4,6 +4,9 @@ spl_autoload_register(function ($class) {
     require_once '.\\' . $class . '.php';
 });
 
+require_once './Core/Helper.php';
+
+
 //https://projecteuler.net/problem=1
 measure(\problem\Problem1::class, 10, 23);
 measure(\problem\Problem1::class, 100, 2318);
@@ -37,26 +40,5 @@ measure(problem\Problem8::class, 4, ["sum" => 5832, "array" => [9, 9, 8, 9]]);
 measure(problem\Problem8::class, 13, ["sum" => 5377010688, "array" => [3, 6, 9, 7, 8, 1, 7, 9, 7, 7, 8, 4, 6]]);
 
 //https://projecteuler.net/problem=9
-measure(problem\Problem9::class, 25, [3,4,5,25]);
-measure(problem\Problem9::class, 1000, [3,4,5,1000]);
-
-function measure(string $problem, $params, $expected)
-{
-    $start_time = microtime(true);
-    $class = new $problem;
-    $result = $class->resolve($params);
-    $end_time = microtime(true);
-    $time = ($end_time - $start_time);
-
-    echo print_raport($problem, $result, $expected, $time);
-}
-
-function print_raport($problem, $result, $expected, $time)
-{
-    return sprintf("STATE: %s\tTEST:%s\tTIME:%ss\tRESULT: %s\r\n",
-        ($result->compare($expected) ? "\033[32mTRUE\033[0m" : "\033[31mFALSE\033[0m"),
-        $problem,
-        number_format($time, 5),
-        json_encode($result->getResult())
-    );
-}
+measure(problem\Problem9::class, 25, [3, 4, 5, 25]);
+measure(problem\Problem9::class, 1000, [3, 4, 5, 1000]);
