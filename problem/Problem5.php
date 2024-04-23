@@ -14,9 +14,9 @@ class Problem5 implements Problem
     public function resolve($value): ProblemResult
     {
         $max = (int)$value;
-        $number = 1;
+        $number = $max;
         while (true) {
-            if($this->divideWithoutReminded($number, $max)) {
+            if ($this->divideWithoutReminded($number, $max)) {
                 break;
             }
             $number++;
@@ -27,8 +27,8 @@ class Problem5 implements Problem
 
     private function divideWithoutReminded($number, $max): bool
     {
-        for ($i = 1; $i <= $max; $i++) {
-            if($number % $i > 0) {
+        for ($i = 2; $i <= $max; $i++) {
+            if ($number % $i > 0) {
                 return false;
             }
         }

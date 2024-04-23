@@ -4,7 +4,12 @@ function measure(string $problem, $params, $expected): void
 {
     $start_time = microtime(true);
     $class = new $problem;
-    $result = $class->resolve($params);
+    try {
+        $result = $class->resolve($params);
+    }
+    catch(Exception $exception) {
+        $result = new \ProblemSolver\ProblemResult($exception->getMessage());
+    }
     $end_time = microtime(true);
     $time = ($end_time - $start_time);
 
