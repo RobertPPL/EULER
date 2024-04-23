@@ -1,11 +1,12 @@
 <?php
 
+ini_set("error_reporting", E_ALL & ~E_DEPRECATED);
+
 spl_autoload_register(function ($class) {
     require_once '.\\' . $class . '.php';
 });
 
 require_once './Core/Helper.php';
-
 
 //https://projecteuler.net/problem=1
 measure(\problem\Problem1::class, 10, 23);
