@@ -41,5 +41,6 @@ measure(\problem\Problem8::class, 4, ["sum" => 5832, "array" => [9, 9, 8, 9]]);
 measure(\problem\Problem8::class, 13, ["sum" => 5377010688, "array" => [3, 6, 9, 7, 8, 1, 7, 9, 7, 7, 8, 4, 6]]);
 
 //https://projecteuler.net/problem=9
-measure(problem\Problem9::class, 25, [3, 4, 5, 25]);
-measure(problem\Problem9::class, 1000, [3, 4, 5, 1000]);
+measure(problem\Problem9::class, 12, [3, 4, 5]);
+measure(problem\Problem9::class, 1000, [200, 375, 425]);
+

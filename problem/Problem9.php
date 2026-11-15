@@ -13,22 +13,20 @@ class Problem9 implements \ProblemSolver\Problem
 
     public function resolve($value): ProblemResult
     {
-        $number = 1;
-        while (true) {
-            $sum = pow($number, 2) + pow($number + 1, 2);
+        for ($a = 1; $a < $value / 3; $a++) {
+            for ($b = $a + 1; $b < $value / 2; $b++) {
+                $c = $value - $a - $b;
 
-            if ($sum === $value) {
-                break;
+                if ($a * $a + $b * $b === $c * $c) {
+                    return new ProblemResult([
+                        $a,
+                        $b,
+                        $c,
+                    ]);
+                }
             }
-
-            $number++;
         }
 
-        return new ProblemResult([
-            $number,
-            $number + 1,
-            $number + 2,
-            $sum
-        ]);
+        throw new \RuntimeException('No solution');
     }
 }
